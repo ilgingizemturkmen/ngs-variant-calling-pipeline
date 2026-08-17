@@ -1,4 +1,3 @@
-# Data files (büyük, GitHub'a gönderilmeyecek)
 data/
 *.bam
 *.bai
@@ -8,14 +7,8 @@ data/
 *.fa
 *.fasta
 *.vcf.gz
-
-# macOS
 .DS_Store
-
-# Python
 __pycache__/
 *.pyc
-
-# R
 .Rhistory
 .RData
