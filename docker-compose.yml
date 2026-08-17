@@ -1,0 +1,54 @@
+version: "3.8"
+
+# ngs-variant-calling-pipeline
+# Roche Diagnostics Türkiye "Bioinformatics Specialist" ilanına yönelik
+# NGS variant calling araç seti — Docker Compose tanımı
+#
+# Not: MSIsensor-pro, Apple Silicon (arm64) Docker/Rosetta ortamında segfault
+# verdiği için Docker'a dahil edilmedi. Bunun yerine conda (native arm64)
+# ortamında ayrı kuruldu: `conda activate msi` ile erişilebilir.
+# Bu, image seçiminde platform uyumluluğunun göz önünde bulundurulması
+# gerektiğini gösteren bilinçli bir mimari karardır.
+
+services:
+  bwa:
+    image: biocontainers/bwa:v0.7.17_cv1
+    platform: linux/amd64
+    volumes:
+      - ./data:/data
+    working_dir: /data
+
+  gatk4:
+    image: broadinstitute/gatk:4.5.0.0
+    platform: linux/amd64
+    volumes:
+      - ./data:/data
+    working_dir: /data
+
+  deepvariant:
+    image: google/deepvariant:1.6.1
+    platform: linux/amd64
+    volumes:
+      - ./data:/data
+    working_dir: /data
+
+  cnvkit:
+    image: etal/cnvkit:latest
+    platform: linux/amd64
+    volumes:
+      - ./data:/data
+    working_dir: /data
+
+  fgbio:
+    image: quay.io/biocontainers/fgbio:2.2.1--hdfd78af_0
+    platform: linux/amd64
+    volumes:
+      - ./data:/data
+    working_dir: /data
+
+  starfusion:
+    image: trinityctat/starfusion:1.13.0
+    platform: linux/amd64
+    volumes:
+      - ./data:/data
+    working_dir: /data
