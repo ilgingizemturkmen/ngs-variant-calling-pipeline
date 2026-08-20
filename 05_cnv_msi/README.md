@@ -70,3 +70,43 @@ samtools depth -r chr17:39687914-39730426 normal.bam | \
 ## Çıktı Dosyaları
 
 - `results/tumor.call.cns` - CNVkit segment ciktisi (gen isimleriyle)
+
+## MSI Analizi (MSIsensor-pro)
+
+MSIsensor-pro conda ile native ARM64 kuruldu (Hafta 1'de MSIsensor2'nin
+Docker'da segfault vermesi nedeniyle alinan mimari karar).
+
+### Adımlar
+
+```bash
+# 1. Referans genomda mikrosatellit tarama
+msisensor-pro scan -d chr17.fa -o chr17_microsatellites.list
+# 86,690 mikrosatellit bolgesi bulundu
+
+# 2. Tumor-normal MSI analizi
+msisensor-pro msi -d chr17_microsatellites.list -n normal.bam -t tumor.bam -o msi_results
+```
+
+### Sonuç
+
+| Total Sites | Unstable Sites | MSI Skoru |
+|---|---|---|
+| 1830 | 84 | **%4.59** |
+
+### Yorumlama
+
+MSIsensor-pro'nun standart esigi (~%3.5) hafifce asilmis, ancak bu
+sinira cok yakin bir sonuc - gercek MSI-High tumorlerde (%30-40+)
+gorulen net ayrisma burada yok.
+
+**Önemli kısıtlama:** Bu analiz sadece **chr17**'ye sinirli - gercek
+klinik MSI testleri tum genom veya standart bir panel (orn. Bethesda
+paneli, 5 marker) kullanir. Bu sonuc bir demo/ogrenme ciktisidir,
+klinik karar icin yeterli degildir - MSI skorunun bağlamdan
+(kapsanan bolge, kullanilan marker sayisi) bagimsiz yorumlanmamasi
+gerektigini gosteren bir ornek.
+
+### Çıktı Dosyaları
+
+- `results/msi_results` - MSI skor ozeti
+- `results/chr17_microsatellites.list` - taranan mikrosatellit bolgeleri
