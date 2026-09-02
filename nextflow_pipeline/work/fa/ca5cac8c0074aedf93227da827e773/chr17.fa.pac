@@ -1,1 +1,0 @@
-/Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/44/2a1b0016cd0f865cd17b33b4efa107/chr17.fa.pac
