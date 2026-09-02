@@ -1,0 +1,9 @@
+INFO	2026-08-30 12:11:30	CreateSequenceDictionary	Output dictionary will be written in chr17.dict
+12:11:31.016 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.5.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Aug 30 12:11:31 GMT 2026] CreateSequenceDictionary --REFERENCE chr17.fa --TRUNCATE_NAMES_AT_WHITESPACE true --NUM_SEQUENCES 2147483647 --VERBOSITY INFO --QUIET false --VALIDATION_STRINGENCY STRICT --COMPRESSION_LEVEL 2 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sun Aug 30 12:11:31 GMT 2026] Executing as root@44337fab0407 on Linux 6.12.76-linuxkit amd64; OpenJDK 64-Bit Server VM 17.0.9+9-Ubuntu-122.04; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:4.5.0.0
+[Sun Aug 30 12:11:31 GMT 2026] picard.sam.CreateSequenceDictionary done. Elapsed time: 0.01 minutes.
+Runtime.totalMemory()=160432128
+Using GATK jar /gatk/gatk-package-4.5.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.5.0.0-local.jar CreateSequenceDictionary -R chr17.fa

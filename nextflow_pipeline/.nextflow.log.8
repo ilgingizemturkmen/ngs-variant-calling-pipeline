@@ -1,0 +1,174 @@
+Ağu-30 15:11:23.649 [main] DEBUG nextflow.cli.Launcher - $> nextflow run somatic.nf
+Ağu-30 15:11:23.707 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 26.04.4
+Ağu-30 15:11:23.725 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/gizem/.nextflow/plugins; core-plugins: nf-amazon@3.9.2,nf-azure@1.22.6,nf-cloudcache@0.6.0,nf-codecommit@0.5.3,nf-console@1.3.0,nf-google@1.27.3,nf-k8s@1.5.4,nf-seqera@0.21.0,nf-tower@1.28.1,nf-wave@1.21.0
+Ağu-30 15:11:23.750 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Ağu-30 15:11:23.751 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Ağu-30 15:11:23.752 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.14.1 in 'deployment' mode
+Ağu-30 15:11:23.764 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Ağu-30 15:11:23.869 [main] DEBUG nextflow.plugin.PluginUpdater - Using plugin repository: HttpPluginRepository [registry]; url=https://registry.nextflow.io/api
+Ağu-30 15:11:23.872 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Ağu-30 15:11:23.889 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/nextflow.config
+Ağu-30 15:11:23.890 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/nextflow.config
+Ağu-30 15:11:23.893 [main] DEBUG nextflow.config.ConfigParserFactory - Using config parser v2
+Ağu-30 15:11:23.902 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Ağu-30 15:11:24.093 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Ağu-30 15:11:24.094 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Ağu-30 15:11:24.105 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/gizem/.nextflow/secrets/store.json
+Ağu-30 15:11:24.107 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@12704e15] - activable => nextflow.secret.LocalSecretsProvider@12704e15
+Ağu-30 15:11:24.117 [main] DEBUG nextflow.cli.CmdRun - Launching `somatic.nf` [maniac_murdock] - revision: cdb87dd9bf
+Ağu-30 15:11:24.171 [main] DEBUG nextflow.Session - Session UUID: a721ce93-1055-4adc-bdda-54c533828563
+Ağu-30 15:11:24.171 [main] DEBUG nextflow.Session - Run name: maniac_murdock
+Ağu-30 15:11:24.171 [main] DEBUG nextflow.Session - Executor pool size: 8
+Ağu-30 15:11:24.177 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Ağu-30 15:11:24.180 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Ağu-30 15:11:24.213 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 26.04.4 build 12445
+  Created: 17-06-2026 16:30 UTC (19:30 TRST)
+  System: Mac OS X 26.6.2
+  Runtime: Groovy 4.0.31 on Java HotSpot(TM) 64-Bit Server VM 21.0.11+9-LTS-211
+  Encoding: UTF-8 (UTF-8)
+  Process: 99377@gizem-air [192.168.1.34]
+  CPUs: 8 - Mem: 8 GB (84 MB) - Swap: 6 GB (699.6 MB)
+Ağu-30 15:11:24.236 [main] DEBUG nextflow.Session - Work-dir: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work [Mac OS X]
+Ağu-30 15:11:24.236 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/bin
+Ağu-30 15:11:24.242 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Ağu-30 15:11:24.247 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Ağu-30 15:11:24.248 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Ağu-30 15:11:24.273 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Ağu-30 15:11:24.279 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Ağu-30 15:11:24.316 [main] DEBUG nextflow.Session - Session start
+Ağu-30 15:11:24.319 [main] DEBUG nextflow.script.ScriptLoaderFactory - Using script parser v2
+Ağu-30 15:11:24.495 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Ağu-30 15:11:24.583 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Ağu-30 15:11:24.583 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Ağu-30 15:11:24.588 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Ağu-30 15:11:24.593 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=8 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Ağu-30 15:11:24.595 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Ağu-30 15:11:24.615 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PREPARE_REFERENCE': maxForks=0; fair=false; array=0
+Ağu-30 15:11:24.641 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Ağu-30 15:11:24.641 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Ağu-30 15:11:24.641 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'MUTECT2_CALL': maxForks=0; fair=false; array=0
+Ağu-30 15:11:24.644 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Ağu-30 15:11:24.644 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Ağu-30 15:11:24.644 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FILTER_MUTECT_CALLS': maxForks=0; fair=false; array=0
+Ağu-30 15:11:24.646 [main] DEBUG nextflow.Session - Process names: FILTER_MUTECT_CALLS, PREPARE_REFERENCE, MUTECT2_CALL
+Ağu-30 15:11:24.648 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Ağu-30 15:11:24.651 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PREPARE_REFERENCE
+Ağu-30 15:11:24.651 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MUTECT2_CALL
+Ağu-30 15:11:24.651 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FILTER_MUTECT_CALLS
+Ağu-30 15:11:24.652 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Main: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/somatic.nf
+Ağu-30 15:11:24.652 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Ağu-30 15:11:24.652 [main] DEBUG nextflow.Session - Session await
+Ağu-30 15:11:24.757 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Ağu-30 15:11:24.759 [Task submitter] INFO  nextflow.Session - [a6/2c8116] Submitted process > PREPARE_REFERENCE (preparing reference)
+Ağu-30 15:11:31.936 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: PREPARE_REFERENCE (preparing reference); status: COMPLETED; exit: 0; error: -; workDir: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/a6/2c811644a1396fa859d92ebc9c43ae]
+Ağu-30 15:11:31.938 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Ağu-30 15:11:31.977 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Ağu-30 15:11:31.978 [Task submitter] INFO  nextflow.Session - [9d/9c7d5c] Submitted process > MUTECT2_CALL (somatic calling)
+Ağu-30 15:15:49.035 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: MUTECT2_CALL (somatic calling); status: COMPLETED; exit: 0; error: -; workDir: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/9d/9c7d5c1c90098a5e2431d20d6dc033]
+Ağu-30 15:15:49.090 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Ağu-30 15:15:49.091 [Task submitter] INFO  nextflow.Session - [c8/333730] Submitted process > FILTER_MUTECT_CALLS (filtering somatic calls)
+Ağu-30 15:15:49.102 [TaskFinalizer-2] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Ağu-30 15:15:53.076 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: FILTER_MUTECT_CALLS (filtering somatic calls); status: COMPLETED; exit: 2; error: -; workDir: /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/c8/333730af073c247d526732829862e6]
+Ağu-30 15:15:53.084 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=FILTER_MUTECT_CALLS (filtering somatic calls); work-dir=/Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/c8/333730af073c247d526732829862e6
+  error [nextflow.exception.ProcessFailedException]: Process `FILTER_MUTECT_CALLS (filtering somatic calls)` terminated with an error exit status (2)
+Ağu-30 15:15:53.101 [TaskFinalizer-3] ERROR nextflow.processor.TaskProcessor - Error executing process > 'FILTER_MUTECT_CALLS (filtering somatic calls)'
+
+Caused by:
+  Process `FILTER_MUTECT_CALLS (filtering somatic calls)` terminated with an error exit status (2)
+
+
+Command executed:
+
+  gatk FilterMutectCalls -R chr17.fa -V somatic.vcf.gz -O somatic_filtered.vcf.gz
+
+Command exit status:
+  2
+
+Command output:
+  (empty)
+
+Command error:
+  12:15:52.381 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.5.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+  12:15:52.621 INFO  FilterMutectCalls - ------------------------------------------------------------
+  12:15:52.625 INFO  FilterMutectCalls - The Genome Analysis Toolkit (GATK) v4.5.0.0
+  12:15:52.625 INFO  FilterMutectCalls - For support and documentation go to https://software.broadinstitute.org/gatk/
+  12:15:52.625 INFO  FilterMutectCalls - Executing as root@949ba9b5c4b6 on Linux v6.12.76-linuxkit amd64
+  12:15:52.625 INFO  FilterMutectCalls - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+  12:15:52.626 INFO  FilterMutectCalls - Start Date/Time: August 30, 2026 at 12:15:52 PM GMT
+  12:15:52.626 INFO  FilterMutectCalls - ------------------------------------------------------------
+  12:15:52.626 INFO  FilterMutectCalls - ------------------------------------------------------------
+  12:15:52.628 INFO  FilterMutectCalls - HTSJDK Version: 4.1.0
+  12:15:52.628 INFO  FilterMutectCalls - Picard Version: 3.1.1
+  12:15:52.628 INFO  FilterMutectCalls - Built for Spark Version: 3.5.0
+  12:15:52.630 INFO  FilterMutectCalls - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+  12:15:52.630 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+  12:15:52.630 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+  12:15:52.630 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+  12:15:52.631 INFO  FilterMutectCalls - Deflater: IntelDeflater
+  12:15:52.631 INFO  FilterMutectCalls - Inflater: IntelInflater
+  12:15:52.631 INFO  FilterMutectCalls - GCS max retries/reopens: 20
+  12:15:52.632 INFO  FilterMutectCalls - Requester pays: disabled
+  12:15:52.633 INFO  FilterMutectCalls - Initializing engine
+  12:15:52.784 INFO  FeatureManager - Using codec VCFCodec to read file file://somatic.vcf.gz
+  12:15:52.813 INFO  FilterMutectCalls - Shutting down engine
+  [August 30, 2026 at 12:15:52 PM GMT] org.broadinstitute.hellbender.tools.walkers.mutect.filtering.FilterMutectCalls done. Elapsed time: 0.01 minutes.
+  Runtime.totalMemory()=97517568
+  ***********************************************************************
+  
+  A USER ERROR has occurred: An index is required but was not found for file drivingVariantFile:somatic.vcf.gz. Support for unindexed block-compressed files has been temporarily disabled. Try running IndexFeatureFile on the input.
+  
+  ***********************************************************************
+  Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.
+  Using GATK jar /gatk/gatk-package-4.5.0.0-local.jar
+  Running:
+      java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.5.0.0-local.jar FilterMutectCalls -R chr17.fa -V somatic.vcf.gz -O somatic_filtered.vcf.gz
+
+Work dir:
+  /Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/c8/333730af073c247d526732829862e6
+
+Container:
+  broadinstitute/gatk:4.5.0.0
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Ağu-30 15:15:53.104 [TaskFinalizer-3] DEBUG nextflow.Session - Session aborted -- Cause: Process `FILTER_MUTECT_CALLS (filtering somatic calls)` terminated with an error exit status (2)
+Ağu-30 15:15:53.105 [main] DEBUG nextflow.Session - Session await > all processes finished
+Ağu-30 15:15:53.128 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Ağu-30 15:15:53.129 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Ağu-30 15:15:53.175 [TaskFinalizer-3] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4m 24s; failedDuration=3.9s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Ağu-30 15:15:53.175 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4m 24s; failedDuration=3.9s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Ağu-30 15:15:53.176 [TaskFinalizer-3] DEBUG nextflow.Session - null
+java.lang.InterruptedException
+	at java.base/java.lang.Object.wait0(Native Method)
+	at java.base/java.lang.Object.wait(Object.java:366)
+	at java.base/java.lang.Thread.join(Thread.java:2078)
+	at java.base/java.lang.Thread.join(Thread.java:2154)
+	at nextflow.trace.AnsiLogObserver.onFlowComplete(AnsiLogObserver.groovy:559)
+	at nextflow.Session$_notifyFlowComplete_lambda38.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1123)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1093)
+	at nextflow.Session.shutdown0(Session.groovy:775)
+	at nextflow.Session.abort(Session.groovy:830)
+	at nextflow.Session.fault(Session.groovy:792)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:753)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:736)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1341)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1096)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1009)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:726)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Ağu-30 15:15:53.344 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Ağu-30 15:15:53.359 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

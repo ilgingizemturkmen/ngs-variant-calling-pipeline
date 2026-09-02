@@ -1,0 +1,2 @@
+patient,sample,lane,fastq_1,fastq_2
+NA12878,NA12878,L001,/Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/data/NA12878_chr17_1.fastq,/Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/data/NA12878_chr17_2.fastq

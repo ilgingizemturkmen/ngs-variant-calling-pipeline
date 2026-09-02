@@ -1,0 +1,44 @@
+14:11:55.146 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.5.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+14:11:55.336 INFO  FilterMutectCalls - ------------------------------------------------------------
+14:11:55.339 INFO  FilterMutectCalls - The Genome Analysis Toolkit (GATK) v4.5.0.0
+14:11:55.339 INFO  FilterMutectCalls - For support and documentation go to https://software.broadinstitute.org/gatk/
+14:11:55.339 INFO  FilterMutectCalls - Executing as root@be5e6c851963 on Linux v6.12.76-linuxkit amd64
+14:11:55.339 INFO  FilterMutectCalls - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+14:11:55.340 INFO  FilterMutectCalls - Start Date/Time: September 1, 2026 at 2:11:55 PM GMT
+14:11:55.340 INFO  FilterMutectCalls - ------------------------------------------------------------
+14:11:55.340 INFO  FilterMutectCalls - ------------------------------------------------------------
+14:11:55.343 INFO  FilterMutectCalls - HTSJDK Version: 4.1.0
+14:11:55.343 INFO  FilterMutectCalls - Picard Version: 3.1.1
+14:11:55.343 INFO  FilterMutectCalls - Built for Spark Version: 3.5.0
+14:11:55.345 INFO  FilterMutectCalls - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+14:11:55.345 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+14:11:55.345 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+14:11:55.345 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+14:11:55.345 INFO  FilterMutectCalls - Deflater: IntelDeflater
+14:11:55.345 INFO  FilterMutectCalls - Inflater: IntelInflater
+14:11:55.346 INFO  FilterMutectCalls - GCS max retries/reopens: 20
+14:11:55.346 INFO  FilterMutectCalls - Requester pays: disabled
+14:11:55.347 INFO  FilterMutectCalls - Initializing engine
+14:11:55.522 INFO  FeatureManager - Using codec VCFCodec to read file file:///Users/gizem/Desktop/biyoinformatik_projeler/ngs-variant-calling-pipeline/nextflow_pipeline/work/4b/1251121e55b3d72ca0583f7469e3dc/somatic.vcf.gz
+14:11:55.611 INFO  FilterMutectCalls - Done initializing engine
+14:11:55.740 INFO  ProgressMeter - Starting traversal
+14:11:55.744 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+14:11:55.745 INFO  FilterMutectCalls - Starting pass 0 through the variants
+14:11:56.908 INFO  FilterMutectCalls - Finished pass 0 through the variants
+14:11:57.463 INFO  FilterMutectCalls - Starting pass 1 through the variants
+14:11:57.793 INFO  FilterMutectCalls - Finished pass 1 through the variants
+14:11:57.905 INFO  FilterMutectCalls - Starting pass 2 through the variants
+14:11:58.093 INFO  FilterMutectCalls - Finished pass 2 through the variants
+14:11:58.095 INFO  FilterMutectCalls - Starting pass 3 through the variants
+14:11:58.783 INFO  FilterMutectCalls - Finished pass 3 through the variants
+14:11:58.835 INFO  FilterMutectCalls - No variants filtered by: AllowAllVariantsVariantFilter
+14:11:58.836 INFO  FilterMutectCalls - 0 read(s) filtered by: AllowAllReadsReadFilter 
+
+14:11:58.838 INFO  ProgressMeter -       chr17:34954559              0.1                  3520          68305.3
+14:11:58.838 INFO  ProgressMeter - Traversal complete. Processed 3520 total variants in 0.1 minutes.
+14:11:58.846 INFO  FilterMutectCalls - Shutting down engine
+[September 1, 2026 at 2:11:58 PM GMT] org.broadinstitute.hellbender.tools.walkers.mutect.filtering.FilterMutectCalls done. Elapsed time: 0.06 minutes.
+Runtime.totalMemory()=182452224
+Using GATK jar /gatk/gatk-package-4.5.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.5.0.0-local.jar FilterMutectCalls -R chr17.fa -V somatic.vcf.gz -O somatic_filtered.vcf.gz
