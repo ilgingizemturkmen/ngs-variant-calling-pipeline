@@ -1,0 +1,93 @@
+---
+title: "NGS Variant Calling Pipeline - Sonuc Raporu"
+author: "Ilgin Gizem Turkmen"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(vcfR)
+```
+
+## Ozet
+
+Bu rapor, NGS variant calling pipeline'inin (Nextflow ile otomatiklestirilmis)
+germline ve somatic sonuclarini ozetlemektedir. Analiz NA12878 (germline) ve
+tumor/normal exome (somatic) veri setleri uzerinde, chr17 referansi
+kullanilarak yapilmistir.
+
+## 1. Germline Varyant Analizi (GATK4 HaplotypeCaller)
+
+```{r germline}
+vcf_g <- read.vcfR("../data/nextflow_results/03_germline_variants/NA12878.vcf.gz", verbose = FALSE)
+fix_g <- as.data.frame(vcf_g@fix)
+fix_g$QUAL <- as.numeric(fix_g$QUAL)
+fix_g$var_type <- ifelse(nchar(fix_g$REF) == 1 & nchar(fix_g$ALT) == 1, "SNP", "INDEL")
+
+cat("Toplam germline varyant:", nrow(fix_g), "\n")
+table(fix_g$var_type)
+```
+
+```{r germline-plot, fig.width=7, fig.height=5}
+barplot(table(fix_g$var_type),
+        main = "NA12878 Germline Varyant Tipleri (chr17)",
+        col = c("steelblue", "coral"),
+        ylab = "Varyant Sayisi")
+```
+
+## 2. Somatic Varyant Analizi (Mutect2)
+
+```{r somatic}
+vcf_s <- read.vcfR("../data/nextflow_results/04_somatic_variants/somatic_filtered.vcf.gz", verbose = FALSE)
+fix_s <- as.data.frame(vcf_s@fix)
+pass_s <- fix_s[fix_s$FILTER == "PASS", ]
+
+cat("Toplam aday somatic varyant:", nrow(fix_s), "\n")
+cat("PASS filtresini gecen:", nrow(pass_s), "\n")
+```
+
+```{r somatic-plot, fig.width=7, fig.height=5}
+filter_counts <- table(fix_s$FILTER == "PASS")
+names(filter_counts) <- c("Filtrelendi", "PASS")
+barplot(filter_counts,
+        main = "Somatic Varyant Filtreleme Sonucu (Mutect2)",
+        col = c("firebrick", "forestgreen"),
+        ylab = "Varyant Sayisi")
+```
+
+### On Plana Cikan Bulgu: TP53 R175H
+
+```{r tp53}
+extract_tlod <- function(info_str) {
+  m <- regmatches(info_str, regexpr("TLOD=[0-9.eE+-]+", info_str))
+  as.numeric(gsub("TLOD=", "", m))
+}
+pass_s$TLOD <- sapply(pass_s$INFO, extract_tlod)
+tp53_row <- pass_s[pass_s$POS == "7675088", ]
+knitr::kable(tp53_row[, c("CHROM", "POS", "REF", "ALT", "FILTER", "TLOD")],
+             caption = "TP53 R175H - ClinVar dogrulamali patojenik mutasyon")
+```
+
+Bu varyant (chr17:7,675,088 C>T), **TP53 p.Arg175His (R175H)** mutasyonuna
+karsilik gelmektedir - ClinVar'da patojenik olarak kayitli, kanserde en sik
+gorulen TP53 hotspot mutasyonlarindan biridir. Mutect2 ve VarDict ile
+bagimsiz olarak dogrulanmis, IGV ile gorsel teyit edilmistir (bkz. Hafta 5
+README).
+
+```{r tp53-plot, fig.width=8, fig.height=5}
+plot(as.numeric(pass_s$POS), pass_s$TLOD,
+     main = "PASS Somatic Varyantlar - chr17 Pozisyonu vs TLOD",
+     xlab = "Pozisyon (chr17)", ylab = "TLOD (Guven Skoru)",
+     pch = 19, col = "gray60")
+tp53_idx <- which(pass_s$POS == "7675088")
+points(7675088, pass_s$TLOD[tp53_idx], pch = 19, col = "red", cex = 2)
+text(7675088, pass_s$TLOD[tp53_idx], "TP53 R175H", pos = 3, col = "red", font = 2)
+```
+
+## Sonuc
+
+Pipeline, hem germline (54 varyant) hem somatic (190 PASS varyant, TP53
+R175H dahil) analizlerde beklenen ve dogrulanmis sonuclar uretmistir.
+Nextflow otomasyonu, elle yapilan analizlerle birebir ayni sonuclari
+vermistir (bkz. Hafta 8 README).
