@@ -13,3 +13,4 @@ __pycache__/
 .Rhistory
 .RData
 08_llm_rag/chroma_db/
+08_llm_rag/chroma_db/
