@@ -18,3 +18,4 @@ venv/
 *.csv
 *.gtf
 .env
+.snakemake/

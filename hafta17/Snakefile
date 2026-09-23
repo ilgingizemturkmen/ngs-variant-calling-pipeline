@@ -1,0 +1,50 @@
+# =========================================================
+# Snakemake ile basit bir NGS pipeline parçası
+# Nextflow'daki (Hafta 8) BWA + samtools adımlarının karşılığı
+# =========================================================
+
+# --- "all" kuralı EN BAŞTA olmalı - Snakemake'in varsayılan hedefi budur ---
+rule all:
+    input:
+        "sirali.bam.bai"
+
+# --- Kural 1: BWA ile hizalama ---
+rule bwa_alignment:
+    input:
+        r1="ornek_R1.fastq",
+        r2="ornek_R2.fastq",
+        ref="referans.fasta"
+    output:
+        "hizalanmis.sam"
+    shell:
+        """
+        echo "[SNAKEMAKE] BWA-MEM ile hizalama yapılıyor..." > {output}
+        echo "Girdi: {input.r1}, {input.r2}" >> {output}
+        echo "Referans: {input.ref}" >> {output}
+        echo "Sonuç: %99.5 mapping rate (simüle edilmiş)" >> {output}
+        """
+
+# --- Kural 2: SAM -> BAM dönüşümü + sıralama (samtools) ---
+rule sam_to_sorted_bam:
+    input:
+        "hizalanmis.sam"
+    output:
+        "sirali.bam"
+    shell:
+        """
+        echo "[SNAKEMAKE] SAM -> BAM dönüşümü ve sıralama yapılıyor..." > {output}
+        echo "Girdi dosyası: {input}" >> {output}
+        cat {input} >> {output}
+        """
+
+# --- Kural 3: BAM indeksleme ---
+rule index_bam:
+    input:
+        "sirali.bam"
+    output:
+        "sirali.bam.bai"
+    shell:
+        """
+        echo "[SNAKEMAKE] BAM dosyası indeksleniyor..." > {output}
+        echo "İndekslenen dosya: {input}" >> {output}
+        """
