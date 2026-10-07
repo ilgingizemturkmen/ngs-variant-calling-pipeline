@@ -20,3 +20,4 @@ venv/
 .env
 .snakemake/
 *.ent
+lora_adaptor/
